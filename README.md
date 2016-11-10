@@ -1,2 +1,2 @@
 # FlightOP-web
-FlightOP compiled.
+FlightOP: https://github.com/JakobPetersson/FlightOP
