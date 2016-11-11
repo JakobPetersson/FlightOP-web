@@ -60,9 +60,9 @@
 	
 	var _Header2 = _interopRequireDefault(_Header);
 	
-	var _Bcbp = __webpack_require__(426);
+	var _flightOp = __webpack_require__(426);
 	
-	var _Bcbp2 = _interopRequireDefault(_Bcbp);
+	var _flightOp2 = _interopRequireDefault(_flightOp);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -88,7 +88,7 @@
 	                "div",
 	                null,
 	                _react2.default.createElement(_Header2.default, { title: "FlightOP" }),
-	                _react2.default.createElement(_Bcbp2.default, { name: "Test" })
+	                _react2.default.createElement(_flightOp2.default, null)
 	            );
 	        }
 	    }]);
@@ -40476,17 +40476,9 @@
 	
 	var _Barcodes2 = _interopRequireDefault(_Barcodes);
 	
-	var _GeneralItems = __webpack_require__(504);
+	var _bcbp = __webpack_require__(504);
 	
-	var _GeneralItems2 = _interopRequireDefault(_GeneralItems);
-	
-	var _Flights = __webpack_require__(509);
-	
-	var _Flights2 = _interopRequireDefault(_Flights);
-	
-	var _SecurityItems = __webpack_require__(511);
-	
-	var _SecurityItems2 = _interopRequireDefault(_SecurityItems);
+	var _bcbp2 = _interopRequireDefault(_bcbp);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -40496,41 +40488,30 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var Bcbp = function (_React$Component) {
-	    _inherits(Bcbp, _React$Component);
+	var FlightOP = function (_React$Component) {
+	    _inherits(FlightOP, _React$Component);
 	
-	    function Bcbp(props) {
-	        _classCallCheck(this, Bcbp);
+	    function FlightOP(props) {
+	        _classCallCheck(this, FlightOP);
 	
-	        var _this = _possibleConstructorReturn(this, (Bcbp.__proto__ || Object.getPrototypeOf(Bcbp)).call(this, props));
+	        var _this = _possibleConstructorReturn(this, (FlightOP.__proto__ || Object.getPrototypeOf(FlightOP)).call(this, props));
 	
 	        _this.state = {
-	            boardingPass: _BoardingPassBuilder2.default.build(_this.loadInitialData())
+	            boardingPass: _BoardingPassBuilder2.default.build(FlightOP.loadInitialData())
 	        };
 	        _this.setData = _this.setData.bind(_this);
-	        _this.dataChange = _this.dataChange.bind(_this);
-	        _this.loadInitialData();
+	        _this.bcbpChange = _this.bcbpChange.bind(_this);
 	        return _this;
 	    }
 	
-	    _createClass(Bcbp, [{
-	        key: "loadInitialData",
-	        value: function loadInitialData() {
-	            var queryData = Bcbp.getParameterByName("data");
-	            if (queryData) {
-	                return queryData;
-	            } else {
-	                return "M1PETERSSON/JAKOBKARLGEC23QD3 LASORDUA 1989 221Y037A0117 15D>3180 M6221BUA              2A01622382678750 UA                        N*30600    09         ^160MEUCIQCVe3nY2UCPZcLIDtDpftn23k+H1VKu2JMYiUps94CQgwIgSPF5t88W92J+IUCb4XruB4O757K4XeUo3Np7Qyy4dfM=";
-	            }
-	        }
-	    }, {
+	    _createClass(FlightOP, [{
 	        key: "setData",
 	        value: function setData(newData) {
 	            this.setState({ boardingPass: _BoardingPassBuilder2.default.build(newData) });
 	        }
 	    }, {
-	        key: "dataChange",
-	        value: function dataChange() {
+	        key: "bcbpChange",
+	        value: function bcbpChange() {
 	            this.setState({ boardingPass: this.state.boardingPass.build() });
 	        }
 	    }, {
@@ -40562,16 +40543,21 @@
 	                        _react2.default.createElement(_Barcodes2.default, { rawData: this.state.boardingPass.rawData() })
 	                    )
 	                ),
-	                _react2.default.createElement(_GeneralItems2.default, { mandatoryItems: this.state.boardingPass.mandatoryItems(),
-	                    conditionalItems: this.state.boardingPass.conditionalItems(),
-	                    dataChange: this.dataChange }),
-	                _react2.default.createElement(_Flights2.default, { flights: this.state.boardingPass.flights(),
-	                    dataChange: this.dataChange }),
-	                _react2.default.createElement(_SecurityItems2.default, { securityItems: this.state.boardingPass.securityItems(),
-	                    bcbpChange: this.dataChange })
+	                _react2.default.createElement(_bcbp2.default, { boardingPass: this.state.boardingPass,
+	                    bcbpChange: this.bcbpChange })
 	            );
 	        }
 	    }], [{
+	        key: "loadInitialData",
+	        value: function loadInitialData() {
+	            var queryData = FlightOP.getParameterByName("data");
+	            if (queryData) {
+	                return queryData;
+	            } else {
+	                return "M1PETERSSON/JAKOBKARLGEC23QD3 LASORDUA 1989 221Y037A0117 15D>3180 M6221BUA              2A01622382678750 UA                        N*30600    09         ^160MEUCIQCVe3nY2UCPZcLIDtDpftn23k+H1VKu2JMYiUps94CQgwIgSPF5t88W92J+IUCb4XruB4O757K4XeUo3Np7Qyy4dfM=";
+	            }
+	        }
+	    }, {
 	        key: "getParameterByName",
 	        value: function getParameterByName(name, url) {
 	            if (!url) url = window.location.href;
@@ -40584,10 +40570,10 @@
 	        }
 	    }]);
 	
-	    return Bcbp;
+	    return FlightOP;
 	}(_react2.default.Component);
 	
-	exports.default = Bcbp;
+	exports.default = FlightOP;
 
 /***/ },
 /* 427 */
@@ -45266,7 +45252,7 @@
 	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
-	              value: true
+	    value: true
 	});
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -45275,15 +45261,29 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactBootstrap = __webpack_require__(173);
+	var _mandatoryGeneral = __webpack_require__(505);
 	
-	var _Item = __webpack_require__(505);
+	var _mandatoryGeneral2 = _interopRequireDefault(_mandatoryGeneral);
 	
-	var _Item2 = _interopRequireDefault(_Item);
+	var _conditionalHeader = __webpack_require__(508);
 	
-	var _OptionalItem = __webpack_require__(507);
+	var _conditionalHeader2 = _interopRequireDefault(_conditionalHeader);
 	
-	var _OptionalItem2 = _interopRequireDefault(_OptionalItem);
+	var _conditionalGeneral = __webpack_require__(509);
+	
+	var _conditionalGeneral2 = _interopRequireDefault(_conditionalGeneral);
+	
+	var _mandatoryFlight = __webpack_require__(512);
+	
+	var _mandatoryFlight2 = _interopRequireDefault(_mandatoryFlight);
+	
+	var _conditionalFlight = __webpack_require__(513);
+	
+	var _conditionalFlight2 = _interopRequireDefault(_conditionalFlight);
+	
+	var _security = __webpack_require__(514);
+	
+	var _security2 = _interopRequireDefault(_security);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -45293,78 +45293,55 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var GeneralItems = function (_React$Component) {
-	              _inherits(GeneralItems, _React$Component);
+	var Bcbp = function (_React$Component) {
+	    _inherits(Bcbp, _React$Component);
 	
-	              function GeneralItems(props) {
-	                            _classCallCheck(this, GeneralItems);
+	    function Bcbp(props) {
+	        _classCallCheck(this, Bcbp);
 	
-	                            return _possibleConstructorReturn(this, (GeneralItems.__proto__ || Object.getPrototypeOf(GeneralItems)).call(this, props));
-	              }
+	        return _possibleConstructorReturn(this, (Bcbp.__proto__ || Object.getPrototypeOf(Bcbp)).call(this, props));
+	    }
 	
-	              _createClass(GeneralItems, [{
-	                            key: "render",
-	                            value: function render() {
-	                                          var title = _react2.default.createElement(
-	                                                        "h3",
-	                                                        null,
-	                                                        "General Information"
-	                                          );
+	    _createClass(Bcbp, [{
+	        key: "render",
+	        value: function render() {
+	            var _this2 = this;
 	
-	                                          var mandatory = this.props.mandatoryItems;
-	                                          var conditional = this.props.conditionalItems;
+	            var conditionalHeader = _react2.default.createElement(_conditionalHeader2.default, { conditionalGeneralItems: this.props.boardingPass.conditionalItems(),
+	                bcbpChange: this.props.bcbpChange });
 	
-	                                          return _react2.default.createElement(
-	                                                        _reactBootstrap.Row,
-	                                                        { className: "show-grid" },
-	                                                        _react2.default.createElement(
-	                                                                      _reactBootstrap.Panel,
-	                                                                      { header: title, bsStyle: "primary" },
-	                                                                      _react2.default.createElement(
-	                                                                                    _reactBootstrap.Form,
-	                                                                                    { horizontal: true, fill: true },
-	                                                                                    _react2.default.createElement(_Item2.default, { item: mandatory.formatCode(),
-	                                                                                                  dataChange: this.props.dataChange }),
-	                                                                                    _react2.default.createElement(_Item2.default, { item: mandatory.numberOfLegsEncoded(),
-	                                                                                                  dataChange: this.props.dataChange }),
-	                                                                                    _react2.default.createElement(_Item2.default, { item: mandatory.passengerName(),
-	                                                                                                  dataChange: this.props.dataChange }),
-	                                                                                    _react2.default.createElement(_Item2.default, { item: mandatory.electronicTicketIndicator(),
-	                                                                                                  dataChange: this.props.dataChange }),
-	                                                                                    _react2.default.createElement(_Item2.default, { item: conditional.beginningOfVersionNumber(),
-	                                                                                                  dataChange: this.props.dataChange }),
-	                                                                                    _react2.default.createElement(_Item2.default, { item: conditional.versionNumber(),
-	                                                                                                  dataChange: this.props.dataChange }),
-	                                                                                    _react2.default.createElement(_Item2.default, { item: conditional.generalConditionalSize(),
-	                                                                                                  dataChange: this.props.dataChange }),
-	                                                                                    _react2.default.createElement(_OptionalItem2.default, { item: conditional.passengerDescription(),
-	                                                                                                  dataChange: this.props.dataChange }),
-	                                                                                    _react2.default.createElement(_OptionalItem2.default, { item: conditional.sourceOfCheckIn(),
-	                                                                                                  dataChange: this.props.dataChange }),
-	                                                                                    _react2.default.createElement(_OptionalItem2.default, { item: conditional.sourceOfBoardingPassIssuance(),
-	                                                                                                  dataChange: this.props.dataChange }),
-	                                                                                    _react2.default.createElement(_OptionalItem2.default, { item: conditional.dateOfIssueOfBoardingPass(),
-	                                                                                                  dataChange: this.props.dataChange }),
-	                                                                                    _react2.default.createElement(_OptionalItem2.default, { item: conditional.documentType(),
-	                                                                                                  dataChange: this.props.dataChange }),
-	                                                                                    _react2.default.createElement(_OptionalItem2.default, { item: conditional.airlineDesignatorOfBoardingPassIssuer(),
-	                                                                                                  dataChange: this.props.dataChange }),
-	                                                                                    _react2.default.createElement(_OptionalItem2.default, { item: conditional.baggageTag(),
-	                                                                                                  dataChange: this.props.dataChange }),
-	                                                                                    _react2.default.createElement(_OptionalItem2.default, { item: conditional.firstNonConsecutiveBaggageTag(),
-	                                                                                                  dataChange: this.props.dataChange }),
-	                                                                                    _react2.default.createElement(_OptionalItem2.default, { item: conditional.secondNonConsecutiveBaggageTag(),
-	                                                                                                  dataChange: this.props.dataChange })
-	                                                                      )
-	                                                        )
-	                                          );
-	                            }
-	              }]);
+	            var conditionalGeneral = _react2.default.createElement(_conditionalGeneral2.default, { conditionalGeneralItems: this.props.boardingPass.conditionalItems(),
+	                bcbpChange: this.props.bcbpChange });
 	
-	              return GeneralItems;
+	            return _react2.default.createElement(
+	                "div",
+	                null,
+	                _react2.default.createElement(_mandatoryGeneral2.default, { mandatoryGeneralItems: this.props.boardingPass.mandatoryItems(),
+	                    bcbpChange: this.props.bcbpChange }),
+	                this.props.boardingPass.flights().map(function (flight) {
+	                    return _react2.default.createElement(
+	                        "div",
+	                        { key: flight.id() },
+	                        _react2.default.createElement(_mandatoryFlight2.default, { flightId: flight.id(),
+	                            mandatoryFlightItems: flight.mandatoryItems(),
+	                            bcbpChange: _this2.props.bcbpChange }),
+	                        flight.id() == 1 ? conditionalHeader : undefined,
+	                        _react2.default.createElement(_conditionalFlight2.default, { flightId: flight.id(),
+	                            conditionalFlightItems: flight.conditionalItems(),
+	                            bcbpChange: _this2.props.bcbpChange }),
+	                        flight.id() == 1 ? conditionalGeneral : undefined
+	                    );
+	                }),
+	                _react2.default.createElement(_security2.default, { securityItems: this.props.boardingPass.securityItems(),
+	                    bcbpChange: this.props.bcbpChange })
+	            );
+	        }
+	    }]);
+	
+	    return Bcbp;
 	}(_react2.default.Component);
 	
-	exports.default = GeneralItems;
+	exports.default = Bcbp;
 
 /***/ },
 /* 505 */
@@ -45384,9 +45361,87 @@
 	
 	var _reactBootstrap = __webpack_require__(173);
 	
-	var _ItemTextField = __webpack_require__(506);
+	var _item = __webpack_require__(506);
 	
-	var _ItemTextField2 = _interopRequireDefault(_ItemTextField);
+	var _item2 = _interopRequireDefault(_item);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var MandatoryGeneral = function (_React$Component) {
+	    _inherits(MandatoryGeneral, _React$Component);
+	
+	    function MandatoryGeneral(props) {
+	        _classCallCheck(this, MandatoryGeneral);
+	
+	        return _possibleConstructorReturn(this, (MandatoryGeneral.__proto__ || Object.getPrototypeOf(MandatoryGeneral)).call(this, props));
+	    }
+	
+	    _createClass(MandatoryGeneral, [{
+	        key: "render",
+	        value: function render() {
+	            var title = _react2.default.createElement(
+	                "h3",
+	                null,
+	                "General Mandatory Information"
+	            );
+	
+	            var items = this.props.mandatoryGeneralItems;
+	
+	            return _react2.default.createElement(
+	                _reactBootstrap.Row,
+	                { className: "show-grid" },
+	                _react2.default.createElement(
+	                    _reactBootstrap.Panel,
+	                    { header: title, bsStyle: "primary" },
+	                    _react2.default.createElement(
+	                        _reactBootstrap.Form,
+	                        { horizontal: true, fill: true },
+	                        _react2.default.createElement(_item2.default, { item: items.formatCode(),
+	                            dataChange: this.props.bcbpChange }),
+	                        _react2.default.createElement(_item2.default, { item: items.numberOfLegsEncoded(),
+	                            dataChange: this.props.bcbpChange }),
+	                        _react2.default.createElement(_item2.default, { item: items.passengerName(),
+	                            dataChange: this.props.bcbpChange }),
+	                        _react2.default.createElement(_item2.default, { item: items.electronicTicketIndicator(),
+	                            dataChange: this.props.bcbpChange })
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+	
+	    return MandatoryGeneral;
+	}(_react2.default.Component);
+	
+	exports.default = MandatoryGeneral;
+
+/***/ },
+/* 506 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactBootstrap = __webpack_require__(173);
+	
+	var _itemTextField = __webpack_require__(507);
+	
+	var _itemTextField2 = _interopRequireDefault(_itemTextField);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -45442,7 +45497,7 @@
 	                    _react2.default.createElement(
 	                        _reactBootstrap.Col,
 	                        { sm: 8 },
-	                        _react2.default.createElement(_ItemTextField2.default, { value: this.state.item.data,
+	                        _react2.default.createElement(_itemTextField2.default, { value: this.state.item.data,
 	                            maxLength: this.state.item.maxLength(),
 	                            dataChange: this.dataChange
 	                        }),
@@ -45459,7 +45514,7 @@
 	exports.default = Item;
 
 /***/ },
-/* 506 */
+/* 507 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -45548,7 +45603,7 @@
 	exports.default = ItemTextField;
 
 /***/ },
-/* 507 */
+/* 508 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -45565,9 +45620,177 @@
 	
 	var _reactBootstrap = __webpack_require__(173);
 	
-	var _OptionalItemTextField = __webpack_require__(508);
+	var _item = __webpack_require__(506);
 	
-	var _OptionalItemTextField2 = _interopRequireDefault(_OptionalItemTextField);
+	var _item2 = _interopRequireDefault(_item);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var ConditionalHeader = function (_React$Component) {
+	    _inherits(ConditionalHeader, _React$Component);
+	
+	    function ConditionalHeader(props) {
+	        _classCallCheck(this, ConditionalHeader);
+	
+	        return _possibleConstructorReturn(this, (ConditionalHeader.__proto__ || Object.getPrototypeOf(ConditionalHeader)).call(this, props));
+	    }
+	
+	    _createClass(ConditionalHeader, [{
+	        key: "render",
+	        value: function render() {
+	            var title = _react2.default.createElement(
+	                "h3",
+	                null,
+	                "Conditional Header Information"
+	            );
+	
+	            var items = this.props.conditionalGeneralItems;
+	
+	            return _react2.default.createElement(
+	                _reactBootstrap.Row,
+	                { className: "show-grid" },
+	                _react2.default.createElement(
+	                    _reactBootstrap.Panel,
+	                    { header: title, bsStyle: "primary" },
+	                    _react2.default.createElement(
+	                        _reactBootstrap.Form,
+	                        { horizontal: true, fill: true },
+	                        _react2.default.createElement(_item2.default, { item: items.beginningOfVersionNumber(),
+	                            dataChange: this.props.bcbpChange }),
+	                        _react2.default.createElement(_item2.default, { item: items.versionNumber(),
+	                            dataChange: this.props.bcbpChange })
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+	
+	    return ConditionalHeader;
+	}(_react2.default.Component);
+	
+	exports.default = ConditionalHeader;
+
+/***/ },
+/* 509 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	              value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactBootstrap = __webpack_require__(173);
+	
+	var _item = __webpack_require__(506);
+	
+	var _item2 = _interopRequireDefault(_item);
+	
+	var _optionalItem = __webpack_require__(510);
+	
+	var _optionalItem2 = _interopRequireDefault(_optionalItem);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var ConditionalGeneral = function (_React$Component) {
+	              _inherits(ConditionalGeneral, _React$Component);
+	
+	              function ConditionalGeneral(props) {
+	                            _classCallCheck(this, ConditionalGeneral);
+	
+	                            return _possibleConstructorReturn(this, (ConditionalGeneral.__proto__ || Object.getPrototypeOf(ConditionalGeneral)).call(this, props));
+	              }
+	
+	              _createClass(ConditionalGeneral, [{
+	                            key: "render",
+	                            value: function render() {
+	                                          var title = _react2.default.createElement(
+	                                                        "h3",
+	                                                        null,
+	                                                        "Conditional General Information"
+	                                          );
+	
+	                                          var items = this.props.conditionalGeneralItems;
+	
+	                                          return _react2.default.createElement(
+	                                                        _reactBootstrap.Row,
+	                                                        { className: "show-grid" },
+	                                                        _react2.default.createElement(
+	                                                                      _reactBootstrap.Panel,
+	                                                                      { header: title, bsStyle: "primary" },
+	                                                                      _react2.default.createElement(
+	                                                                                    _reactBootstrap.Form,
+	                                                                                    { horizontal: true, fill: true },
+	                                                                                    _react2.default.createElement(_item2.default, { item: items.generalConditionalSize(),
+	                                                                                                  dataChange: this.props.bcbpChange }),
+	                                                                                    _react2.default.createElement(_optionalItem2.default, { item: items.passengerDescription(),
+	                                                                                                  dataChange: this.props.bcbpChange }),
+	                                                                                    _react2.default.createElement(_optionalItem2.default, { item: items.sourceOfCheckIn(),
+	                                                                                                  dataChange: this.props.bcbpChange }),
+	                                                                                    _react2.default.createElement(_optionalItem2.default, { item: items.sourceOfBoardingPassIssuance(),
+	                                                                                                  dataChange: this.props.bcbpChange }),
+	                                                                                    _react2.default.createElement(_optionalItem2.default, { item: items.dateOfIssueOfBoardingPass(),
+	                                                                                                  dataChange: this.props.bcbpChange }),
+	                                                                                    _react2.default.createElement(_optionalItem2.default, { item: items.documentType(),
+	                                                                                                  dataChange: this.props.bcbpChange }),
+	                                                                                    _react2.default.createElement(_optionalItem2.default, { item: items.airlineDesignatorOfBoardingPassIssuer(),
+	                                                                                                  dataChange: this.props.bcbpChange }),
+	                                                                                    _react2.default.createElement(_optionalItem2.default, { item: items.baggageTag(),
+	                                                                                                  dataChange: this.props.bcbpChange }),
+	                                                                                    _react2.default.createElement(_optionalItem2.default, { item: items.firstNonConsecutiveBaggageTag(),
+	                                                                                                  dataChange: this.props.bcbpChange }),
+	                                                                                    _react2.default.createElement(_optionalItem2.default, { item: items.secondNonConsecutiveBaggageTag(),
+	                                                                                                  dataChange: this.props.bcbpChange })
+	                                                                      )
+	                                                        )
+	                                          );
+	                            }
+	              }]);
+	
+	              return ConditionalGeneral;
+	}(_react2.default.Component);
+	
+	exports.default = ConditionalGeneral;
+
+/***/ },
+/* 510 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactBootstrap = __webpack_require__(173);
+	
+	var _optionalItemTextField = __webpack_require__(511);
+	
+	var _optionalItemTextField2 = _interopRequireDefault(_optionalItemTextField);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -45623,7 +45846,7 @@
 	                    _react2.default.createElement(
 	                        _reactBootstrap.Col,
 	                        { sm: 8 },
-	                        _react2.default.createElement(_OptionalItemTextField2.default, { value: this.state.item.data,
+	                        _react2.default.createElement(_optionalItemTextField2.default, { value: this.state.item.data,
 	                            maxLength: this.state.item.maxLength(),
 	                            enabled: this.state.item.enabled(),
 	                            dataChange: this.dataChange
@@ -45641,7 +45864,7 @@
 	exports.default = OptionalItem;
 
 /***/ },
-/* 508 */
+/* 511 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -45658,9 +45881,9 @@
 	
 	var _reactBootstrap = __webpack_require__(173);
 	
-	var _ItemTextField = __webpack_require__(506);
+	var _itemTextField = __webpack_require__(507);
 	
-	var _ItemTextField2 = _interopRequireDefault(_ItemTextField);
+	var _itemTextField2 = _interopRequireDefault(_itemTextField);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -45692,7 +45915,7 @@
 	                        checked: this.props.enabled,
 	                        readOnly: true })
 	                ),
-	                _react2.default.createElement(_ItemTextField2.default, { value: this.props.value,
+	                _react2.default.createElement(_itemTextField2.default, { value: this.props.value,
 	                    maxLength: this.props.maxLength,
 	                    dataChange: this.props.dataChange
 	                })
@@ -45706,67 +45929,7 @@
 	exports.default = OptionalItemTextField;
 
 /***/ },
-/* 509 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _reactBootstrap = __webpack_require__(173);
-	
-	var _Flight = __webpack_require__(510);
-	
-	var _Flight2 = _interopRequireDefault(_Flight);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var Flights = function (_React$Component) {
-	    _inherits(Flights, _React$Component);
-	
-	    function Flights(props) {
-	        _classCallCheck(this, Flights);
-	
-	        return _possibleConstructorReturn(this, (Flights.__proto__ || Object.getPrototypeOf(Flights)).call(this, props));
-	    }
-	
-	    _createClass(Flights, [{
-	        key: "render",
-	        value: function render() {
-	            var _this2 = this;
-	
-	            return _react2.default.createElement(
-	                _reactBootstrap.Row,
-	                { className: "show-grid" },
-	                this.props.flights.map(function (flight) {
-	                    return _react2.default.createElement(_Flight2.default, { key: flight.id, flight: flight,
-	                        dataChange: _this2.props.dataChange });
-	                })
-	            );
-	        }
-	    }]);
-	
-	    return Flights;
-	}(_react2.default.Component);
-	
-	exports.default = Flights;
-
-/***/ },
-/* 510 */
+/* 512 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -45783,13 +45946,9 @@
 	
 	var _reactBootstrap = __webpack_require__(173);
 	
-	var _Item = __webpack_require__(505);
+	var _item = __webpack_require__(506);
 	
-	var _Item2 = _interopRequireDefault(_Item);
-	
-	var _OptionalItem = __webpack_require__(507);
-	
-	var _OptionalItem2 = _interopRequireDefault(_OptionalItem);
+	var _item2 = _interopRequireDefault(_item);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -45799,92 +45958,172 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var Flight = function (_React$Component) {
-	      _inherits(Flight, _React$Component);
+	var MandatoryFlight = function (_React$Component) {
+	      _inherits(MandatoryFlight, _React$Component);
 	
-	      function Flight(props) {
-	            _classCallCheck(this, Flight);
+	      function MandatoryFlight(props) {
+	            _classCallCheck(this, MandatoryFlight);
 	
-	            return _possibleConstructorReturn(this, (Flight.__proto__ || Object.getPrototypeOf(Flight)).call(this, props));
+	            return _possibleConstructorReturn(this, (MandatoryFlight.__proto__ || Object.getPrototypeOf(MandatoryFlight)).call(this, props));
 	      }
 	
-	      _createClass(Flight, [{
+	      _createClass(MandatoryFlight, [{
 	            key: "render",
 	            value: function render() {
 	                  var title = _react2.default.createElement(
 	                        "h3",
 	                        null,
 	                        "Flight ",
-	                        this.props.flight.id()
+	                        this.props.flightId,
+	                        " Mandatory Information"
 	                  );
 	
-	                  var mandatory = this.props.flight.mandatoryItems();
-	                  var conditional = this.props.flight.conditionalItems();
+	                  var items = this.props.mandatoryFlightItems;
 	
 	                  return _react2.default.createElement(
-	                        _reactBootstrap.Panel,
-	                        { header: title, bsStyle: "primary" },
+	                        _reactBootstrap.Row,
+	                        { className: "show-grid" },
 	                        _react2.default.createElement(
-	                              _reactBootstrap.Form,
-	                              { horizontal: true, fill: true },
-	                              _react2.default.createElement(_Item2.default, { item: mandatory.operatingCarrierPNRCode(),
-	                                    dataChange: this.props.dataChange }),
-	                              _react2.default.createElement(_Item2.default, { item: mandatory.fromCityAirportCode(),
-	                                    dataChange: this.props.dataChange }),
-	                              _react2.default.createElement(_Item2.default, { item: mandatory.toCityAirportCode(),
-	                                    dataChange: this.props.dataChange }),
-	                              _react2.default.createElement(_Item2.default, { item: mandatory.operatingCarrierDesignator(),
-	                                    dataChange: this.props.dataChange }),
-	                              _react2.default.createElement(_Item2.default, { item: mandatory.flightNumber(),
-	                                    dataChange: this.props.dataChange }),
-	                              _react2.default.createElement(_Item2.default, { item: mandatory.dateOfFlight(),
-	                                    dataChange: this.props.dataChange }),
-	                              _react2.default.createElement(_Item2.default, { item: mandatory.compartmentCode(),
-	                                    dataChange: this.props.dataChange }),
-	                              _react2.default.createElement(_Item2.default, { item: mandatory.seatNumber(),
-	                                    dataChange: this.props.dataChange }),
-	                              _react2.default.createElement(_Item2.default, { item: mandatory.checkInSequenceNumber(),
-	                                    dataChange: this.props.dataChange }),
-	                              _react2.default.createElement(_Item2.default, { item: mandatory.passengerStatus(),
-	                                    dataChange: this.props.dataChange }),
-	                              _react2.default.createElement(_Item2.default, { item: mandatory.allConditionalSize(),
-	                                    dataChange: this.props.dataChange }),
-	                              _react2.default.createElement(_Item2.default, { item: conditional.flightConditionalSize(),
-	                                    dataChange: this.props.dataChange }),
-	                              _react2.default.createElement(_OptionalItem2.default, { item: conditional.airlineNumericCode(),
-	                                    dataChange: this.props.dataChange }),
-	                              _react2.default.createElement(_OptionalItem2.default, { item: conditional.documentFormOrSerialNumber(),
-	                                    dataChange: this.props.dataChange }),
-	                              _react2.default.createElement(_OptionalItem2.default, { item: conditional.selecteeIndicator(),
-	                                    dataChange: this.props.dataChange }),
-	                              _react2.default.createElement(_OptionalItem2.default, { item: conditional.internationalDocumentationVerification(),
-	                                    dataChange: this.props.dataChange }),
-	                              _react2.default.createElement(_OptionalItem2.default, { item: conditional.marketingCarrierDesignator(),
-	                                    dataChange: this.props.dataChange }),
-	                              _react2.default.createElement(_OptionalItem2.default, { item: conditional.frequentFlyerAirlineDesignator(),
-	                                    dataChange: this.props.dataChange }),
-	                              _react2.default.createElement(_OptionalItem2.default, { item: conditional.frequentFlyerNumber(),
-	                                    dataChange: this.props.dataChange }),
-	                              _react2.default.createElement(_OptionalItem2.default, { item: conditional.idOrAdIndicator(),
-	                                    dataChange: this.props.dataChange }),
-	                              _react2.default.createElement(_OptionalItem2.default, { item: conditional.freeBaggageAllowance(),
-	                                    dataChange: this.props.dataChange }),
-	                              _react2.default.createElement(_OptionalItem2.default, { item: conditional.fastTrack(),
-	                                    dataChange: this.props.dataChange }),
-	                              _react2.default.createElement(_OptionalItem2.default, { item: conditional.forIndividualAirlineUse(),
-	                                    dataChange: this.props.dataChange })
+	                              _reactBootstrap.Panel,
+	                              { header: title, bsStyle: "primary" },
+	                              _react2.default.createElement(
+	                                    _reactBootstrap.Form,
+	                                    { horizontal: true, fill: true },
+	                                    _react2.default.createElement(_item2.default, { item: items.operatingCarrierPNRCode(),
+	                                          dataChange: this.props.bcbpChange }),
+	                                    _react2.default.createElement(_item2.default, { item: items.fromCityAirportCode(),
+	                                          dataChange: this.props.bcbpChange }),
+	                                    _react2.default.createElement(_item2.default, { item: items.toCityAirportCode(),
+	                                          dataChange: this.props.bcbpChange }),
+	                                    _react2.default.createElement(_item2.default, { item: items.operatingCarrierDesignator(),
+	                                          dataChange: this.props.bcbpChange }),
+	                                    _react2.default.createElement(_item2.default, { item: items.flightNumber(),
+	                                          dataChange: this.props.bcbpChange }),
+	                                    _react2.default.createElement(_item2.default, { item: items.dateOfFlight(),
+	                                          dataChange: this.props.bcbpChange }),
+	                                    _react2.default.createElement(_item2.default, { item: items.compartmentCode(),
+	                                          dataChange: this.props.bcbpChange }),
+	                                    _react2.default.createElement(_item2.default, { item: items.seatNumber(),
+	                                          dataChange: this.props.bcbpChange }),
+	                                    _react2.default.createElement(_item2.default, { item: items.checkInSequenceNumber(),
+	                                          dataChange: this.props.bcbpChange }),
+	                                    _react2.default.createElement(_item2.default, { item: items.passengerStatus(),
+	                                          dataChange: this.props.bcbpChange }),
+	                                    _react2.default.createElement(_item2.default, { item: items.allConditionalSize(),
+	                                          dataChange: this.props.bcbpChange })
+	                              )
 	                        )
 	                  );
 	            }
 	      }]);
 	
-	      return Flight;
+	      return MandatoryFlight;
 	}(_react2.default.Component);
 	
-	exports.default = Flight;
+	exports.default = MandatoryFlight;
 
 /***/ },
-/* 511 */
+/* 513 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	              value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactBootstrap = __webpack_require__(173);
+	
+	var _item = __webpack_require__(506);
+	
+	var _item2 = _interopRequireDefault(_item);
+	
+	var _optionalItem = __webpack_require__(510);
+	
+	var _optionalItem2 = _interopRequireDefault(_optionalItem);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var ConditionalFlight = function (_React$Component) {
+	              _inherits(ConditionalFlight, _React$Component);
+	
+	              function ConditionalFlight(props) {
+	                            _classCallCheck(this, ConditionalFlight);
+	
+	                            return _possibleConstructorReturn(this, (ConditionalFlight.__proto__ || Object.getPrototypeOf(ConditionalFlight)).call(this, props));
+	              }
+	
+	              _createClass(ConditionalFlight, [{
+	                            key: "render",
+	                            value: function render() {
+	                                          var title = _react2.default.createElement(
+	                                                        "h3",
+	                                                        null,
+	                                                        "Flight ",
+	                                                        this.props.flightId,
+	                                                        " Conditional Information"
+	                                          );
+	
+	                                          var items = this.props.conditionalFlightItems;
+	
+	                                          return _react2.default.createElement(
+	                                                        _reactBootstrap.Row,
+	                                                        { className: "show-grid" },
+	                                                        _react2.default.createElement(
+	                                                                      _reactBootstrap.Panel,
+	                                                                      { header: title, bsStyle: "primary" },
+	                                                                      _react2.default.createElement(
+	                                                                                    _reactBootstrap.Form,
+	                                                                                    { horizontal: true, fill: true },
+	                                                                                    _react2.default.createElement(_item2.default, { item: items.flightConditionalSize(),
+	                                                                                                  dataChange: this.props.bcbpChange }),
+	                                                                                    _react2.default.createElement(_optionalItem2.default, { item: items.airlineNumericCode(),
+	                                                                                                  dataChange: this.props.bcbpChange }),
+	                                                                                    _react2.default.createElement(_optionalItem2.default, { item: items.documentFormOrSerialNumber(),
+	                                                                                                  dataChange: this.props.bcbpChange }),
+	                                                                                    _react2.default.createElement(_optionalItem2.default, { item: items.selecteeIndicator(),
+	                                                                                                  dataChange: this.props.bcbpChange }),
+	                                                                                    _react2.default.createElement(_optionalItem2.default, { item: items.internationalDocumentationVerification(),
+	                                                                                                  dataChange: this.props.bcbpChange }),
+	                                                                                    _react2.default.createElement(_optionalItem2.default, { item: items.marketingCarrierDesignator(),
+	                                                                                                  dataChange: this.props.bcbpChange }),
+	                                                                                    _react2.default.createElement(_optionalItem2.default, { item: items.frequentFlyerAirlineDesignator(),
+	                                                                                                  dataChange: this.props.bcbpChange }),
+	                                                                                    _react2.default.createElement(_optionalItem2.default, { item: items.frequentFlyerNumber(),
+	                                                                                                  dataChange: this.props.bcbpChange }),
+	                                                                                    _react2.default.createElement(_optionalItem2.default, { item: items.idOrAdIndicator(),
+	                                                                                                  dataChange: this.props.bcbpChange }),
+	                                                                                    _react2.default.createElement(_optionalItem2.default, { item: items.freeBaggageAllowance(),
+	                                                                                                  dataChange: this.props.bcbpChange }),
+	                                                                                    _react2.default.createElement(_optionalItem2.default, { item: items.fastTrack(),
+	                                                                                                  dataChange: this.props.bcbpChange }),
+	                                                                                    _react2.default.createElement(_optionalItem2.default, { item: items.forIndividualAirlineUse(),
+	                                                                                                  dataChange: this.props.bcbpChange })
+	                                                                      )
+	                                                        )
+	                                          );
+	                            }
+	              }]);
+	
+	              return ConditionalFlight;
+	}(_react2.default.Component);
+	
+	exports.default = ConditionalFlight;
+
+/***/ },
+/* 514 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -45901,9 +46140,9 @@
 	
 	var _reactBootstrap = __webpack_require__(173);
 	
-	var _Item = __webpack_require__(505);
+	var _item = __webpack_require__(506);
 	
-	var _Item2 = _interopRequireDefault(_Item);
+	var _item2 = _interopRequireDefault(_item);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -45913,20 +46152,20 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var SecurityItems = function (_React$Component) {
-	    _inherits(SecurityItems, _React$Component);
+	var Security = function (_React$Component) {
+	    _inherits(Security, _React$Component);
 	
-	    function SecurityItems(props) {
-	        _classCallCheck(this, SecurityItems);
+	    function Security(props) {
+	        _classCallCheck(this, Security);
 	
-	        var _this = _possibleConstructorReturn(this, (SecurityItems.__proto__ || Object.getPrototypeOf(SecurityItems)).call(this, props));
+	        var _this = _possibleConstructorReturn(this, (Security.__proto__ || Object.getPrototypeOf(Security)).call(this, props));
 	
 	        _this.state = { securityItems: _this.props.securityItems };
 	        _this.enableCheckboxChanged = _this.enableCheckboxChanged.bind(_this);
 	        return _this;
 	    }
 	
-	    _createClass(SecurityItems, [{
+	    _createClass(Security, [{
 	        key: "componentWillReceiveProps",
 	        value: function componentWillReceiveProps(nextProps) {
 	            if (nextProps.securityItems !== this.state.securityItems) {
@@ -45961,13 +46200,13 @@
 	                    _react2.default.createElement(
 	                        _reactBootstrap.Form,
 	                        { horizontal: true, fill: true, hidden: !this.state.securityItems.isEnabled() },
-	                        _react2.default.createElement(_Item2.default, { item: items.beginningOfSecurityData(),
+	                        _react2.default.createElement(_item2.default, { item: items.beginningOfSecurityData(),
 	                            dataChange: this.props.bcbpChange }),
-	                        _react2.default.createElement(_Item2.default, { item: items.typeOfSecurityData(),
+	                        _react2.default.createElement(_item2.default, { item: items.typeOfSecurityData(),
 	                            dataChange: this.props.bcbpChange }),
-	                        _react2.default.createElement(_Item2.default, { item: items.lengthOfSecurityData(),
+	                        _react2.default.createElement(_item2.default, { item: items.lengthOfSecurityData(),
 	                            dataChange: this.props.bcbpChange }),
-	                        _react2.default.createElement(_Item2.default, { item: items.securityData(),
+	                        _react2.default.createElement(_item2.default, { item: items.securityData(),
 	                            dataChange: this.props.bcbpChange })
 	                    )
 	                )
@@ -45975,10 +46214,10 @@
 	        }
 	    }]);
 	
-	    return SecurityItems;
+	    return Security;
 	}(_react2.default.Component);
 	
-	exports.default = SecurityItems;
+	exports.default = Security;
 
 /***/ }
 /******/ ]);
